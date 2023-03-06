@@ -1,0 +1,13 @@
+wait(in_mutex);
+signal(in_mutex);
+wait(rdc_mutex);
+read_count++;
+if (read_count ==1 ) wait(wrt_mutex);
+signal(rdc_mutex);
+…
+reading is performed
+…
+wait(rdc_mutex);
+read_count--;
+if (read_count == 0) signal(wrt_mutex);
+signal(rdc_mutex)
