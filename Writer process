@@ -1,0 +1,7 @@
+/* writers requests for criical section */
+wait(in_mutex);
+wait(wrt_mutex);
+/* performs write */
+// leaves the critical section
+signal(wrt_mutex);
+signal(in_mutex);
